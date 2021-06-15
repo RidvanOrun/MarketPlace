@@ -11,6 +11,8 @@ namespace MarketPlace.DomainLayer.Repository.BaseRepository
     {
         Task<List<T>> Get(Expression<Func<T, bool>> expression);
 
+        Task<T> FirstOrDefault(Expression<Func<T, bool>> expression);
+
         Task Add(T entity);
 
         void Update(T entity);

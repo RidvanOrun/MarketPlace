@@ -15,20 +15,51 @@ namespace MarketPlace.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductRepository _productRepository;
+       
         private readonly IUnitOfWork _unitOfWork;
 
-        public ProductController(IProductRepository productRepository,IUnitOfWork unitOfWork)
-        {
-            this._productRepository = productRepository;
+        public ProductController(IUnitOfWork unitOfWork)
+        {          
             this._unitOfWork = unitOfWork;
         }
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-
-            return Ok(await _unitOfWork.ProductRepository.Get(x => x.Status != Status.Passive));          
+            return Ok(await _unitOfWork.ProductRepository.Get(x => x.Status != Status.Passive));
         }
+
+        [HttpPost]
+        public async Task Create([FromBody] Product product) 
+        {
+            Product newproduct = new Product
+            {
+                ProductName = product.ProductName,
+                Price = product.Price,
+                Description=product.Description,
+                CategoryId=product.CategoryId
+
+            };
+
+            await _unitOfWork.ProductRepository.Add(newproduct);
+            await _unitOfWork.Commit();
+        }
+
+        [HttpPut]
+        public async Task Update([FromBody] Product product)
+        {
+            var newproduct = await _unitOfWork.ProductRepository.FirstOrDefault(x => x.id == product.id);
+
+            newproduct.id = product.id;
+            newproduct.ProductName = product.ProductName;
+            newproduct.Price = product.Price;
+            newproduct.CategoryId = product.CategoryId;
+            newproduct.Description = product.Description;
+
+            _unitOfWork.ProductRepository.Update(newproduct);
+            await _unitOfWork.Commit();
+        }
+
+
 
     }
 }

@@ -34,6 +34,8 @@ namespace MarketPlace.InfrastructureLayer.Repository.BaseRepository
             entity.DeleteDate = DateTime.Now; // passsive alınma tarihini o anlık tarih yaptık.
         }
 
+        public async Task<T> FirstOrDefault(Expression<Func<T, bool>> expression) => await _table.Where(expression).FirstOrDefaultAsync();
+
         public async Task<List<T>> Get(Expression<Func<T, bool>> expression) => await _table.Where(expression).ToListAsync();
         
         public void Update(T entity)
