@@ -1,4 +1,6 @@
-﻿using MarketPlace.DomainLayer.UnitOfWork;
+﻿using MarketPlace.API.Model.DTOs;
+using MarketPlace.API.Services.Concrete;
+using MarketPlace.DomainLayer.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,56 +14,47 @@ namespace MarketPlace.API.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public CategoryController(IUnitOfWork unitOfWork)
+        private readonly CategoryService _categoryService;
+
+        public CategoryController(CategoryService categoryService)
         {
-            this._unitOfWork = unitOfWork;
+            this._categoryService = categoryService;
         }
-                
 
-        //[HttpGet]
-        //public async Task<IActionResult> Get()
-        //{
-        //    return Ok(await _unitOfWork.ProductRepository.Get(x => x.Status != Status.Passive));
-        //}
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            return Ok(await _categoryService.CategoryList());
+        }
 
-        //[HttpPost]
-        //public async Task Create([FromBody] Product product)
-        //{
-        //    Product newproduct = new Product
-        //    {
-        //        ProductName = product.ProductName,
-        //        Price = product.Price,
-        //        Description = product.Description,
-        //        CategoryId = product.CategoryId
+        [HttpPost]
+        public async Task Create([FromBody] CategoryDTO categoryDTO)
+        {
+            if (categoryDTO != null)
+            {
+                await _categoryService.Create(categoryDTO);
+            }
+        }
 
-        //    };
+        [HttpPut]
+        public async Task Update([FromBody] CategoryDTO categoryDTO)
+        {
 
-        //    await _unitOfWork.ProductRepository.Add(newproduct);
-        //    await _unitOfWork.Commit();
-        //}
+            if (categoryDTO != null)
+            {
+                await _categoryService.Create(categoryDTO);
+            }
 
-        //[HttpPut]
-        //public async Task Update([FromBody] Product product)
-        //{
-        //    var newproduct = await _unitOfWork.ProductRepository.FirstOrDefault(x => x.id == product.id);
+        }
 
-        //    newproduct.id = product.id;
-        //    newproduct.ProductName = product.ProductName;
-        //    newproduct.Price = product.Price;
-        //    newproduct.CategoryId = product.CategoryId;
-        //    newproduct.Description = product.Description;
+        [HttpDelete]
+        public async Task Delete([FromBody] CategoryDTO categoryDTO)
+        {
+            await _categoryService.Delete(categoryDTO);
+        }
 
-        //    _unitOfWork.ProductRepository.Update(newproduct);
-        //    await _unitOfWork.Commit();
-        //}
 
-        //[HttpDelete]
-        //public async Task Delete([FromBody] Product product)
-        //{
-        //    var newproduct = await _unitOfWork.ProductRepository.FirstOrDefault(x => x.id == product.id);
-        //    _unitOfWork.ProductRepository.Delete(newproduct);
-        //    await _unitOfWork.Commit();
-        //}
+
+
     }
 }
