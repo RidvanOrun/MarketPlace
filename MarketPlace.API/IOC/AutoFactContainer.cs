@@ -1,4 +1,8 @@
 ﻿using Autofac;
+using AutoMapper;
+using MarketPlace.API.Mapper;
+using MarketPlace.API.Services.Concrete;
+using MarketPlace.API.Services.Interface;
 using MarketPlace.DomainLayer.Repository.EntityTypeRepository;
 using MarketPlace.DomainLayer.UnitOfWork;
 using MarketPlace.InfrastructureLayer.Repository.EntityTypeRepository;
@@ -14,10 +18,13 @@ namespace MarketPlace.API.IOC
     {
         protected override void Load(ContainerBuilder builder) 
         {
-            builder.RegisterType<CategoryRepository>().As<ICategoryRepository>().InstancePerLifetimeScope();
-            builder.RegisterType<ProductRepository>().As<IProductRepository>().InstancePerLifetimeScope();
+
+            builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
+            builder.RegisterType<ProductService>().As<IProductService>().InstancePerLifetimeScope();
+           
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+            //builder.RegisterType<Mapping>().As<IMapper>().InstancePerLifetimeScope();
         }
     }
 }

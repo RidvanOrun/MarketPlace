@@ -1,3 +1,4 @@
+using MarketPlace.API.Mapper;
 using MarketPlace.InfrastructureLayer.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,6 +27,7 @@ namespace MarketPlace.API
         {
             services.AddRazorPages();
 
+            services.AddAutoMapper(typeof(Mapping));
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(option=> option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
