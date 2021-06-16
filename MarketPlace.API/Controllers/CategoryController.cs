@@ -1,5 +1,5 @@
 ﻿using MarketPlace.API.Model.DTOs;
-using MarketPlace.API.Services.Concrete;
+using MarketPlace.API.Services.Interface;
 using MarketPlace.DomainLayer.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +14,9 @@ namespace MarketPlace.API.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly CategoryService _categoryService;
+        private readonly ICategoryService _categoryService;
 
-        public CategoryController(CategoryService categoryService)
+        public CategoryController(ICategoryService categoryService)
         {
             this._categoryService = categoryService;
         }

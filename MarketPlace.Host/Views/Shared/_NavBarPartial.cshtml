@@ -1,0 +1,30 @@
+﻿
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CHEAPEST</a>
+
+
+        @using (Html.BeginForm())
+        {
+            <div>
+                <div style="width:60%; float:left">
+                    @Html.TextBox("search", null, new { @class = "form-control", @placeholder = "Search" })
+                </div>
+                <div>
+                    <button class="btn btn-outline-success" type="submit" style="float:right">Search</button>
+                </div>
+            </div>
+        }
+       
+
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+            <div class="navbar-nav ml-2">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+
+

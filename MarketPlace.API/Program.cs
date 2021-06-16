@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace MarketPlace.API
 {
+    using Akk = Microsoft.Extensions.Hosting.Host;
     public class Program
     {
         public static void Main(string[] args)
@@ -20,7 +21,7 @@ namespace MarketPlace.API
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-           Host.CreateDefaultBuilder(args)
+           Akk.CreateDefaultBuilder(args)
            .UseServiceProviderFactory(new AutofacServiceProviderFactory())
            .ConfigureContainer<ContainerBuilder>(builder =>
            {
