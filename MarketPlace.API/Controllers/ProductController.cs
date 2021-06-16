@@ -59,6 +59,14 @@ namespace MarketPlace.API.Controllers
             await _unitOfWork.Commit();
         }
 
+        [HttpDelete]
+        public async Task Delete([FromBody] Product product)
+        {
+            var newproduct = await _unitOfWork.ProductRepository.FirstOrDefault(x => x.id == product.id);
+            _unitOfWork.ProductRepository.Delete(newproduct);
+            await _unitOfWork.Commit();
+        }
+
 
 
     }

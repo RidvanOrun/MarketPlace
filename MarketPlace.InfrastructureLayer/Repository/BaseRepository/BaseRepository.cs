@@ -29,7 +29,8 @@ namespace MarketPlace.InfrastructureLayer.Repository.BaseRepository
         }
 
         public void Delete(T entity)
-        {           
+        {          
+            
             entity.Status = Status.Passive; // => Status passsive haline getirdik.
             entity.DeleteDate = DateTime.Now; // passsive alınma tarihini o anlık tarih yaptık.
         }
