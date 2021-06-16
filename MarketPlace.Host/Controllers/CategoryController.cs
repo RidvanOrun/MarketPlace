@@ -52,7 +52,7 @@ namespace MarketPlace.Host.Controllers
 
             using (var httpClient = new HttpClient())
             {
-                using var request = await httpClient.GetAsync($"http://localhost:51887/api/category");
+                using var request = await httpClient.GetAsync($"http://localhost:51887/api/category/id");
 
                 string response = await request.Content.ReadAsStringAsync();
 
@@ -70,7 +70,7 @@ namespace MarketPlace.Host.Controllers
             {
                 var content = new StringContent(JsonConvert.SerializeObject(category), Encoding.UTF8, "application/json");
 
-                using var request = await httpClient.PutAsync($"http://localhost:51887/api/category", content);
+                using var request = await httpClient.PutAsync($"http://localhost:51887/api/category/{category.id}", content);
 
                 string response = await content.ReadAsStringAsync();
             }
@@ -78,11 +78,11 @@ namespace MarketPlace.Host.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Delete(Category category)
+        public async Task<IActionResult> Delete(int id)
         {
             using (var httpClient = new HttpClient())
             {
-                using var request = await httpClient.DeleteAsync($"http://localhost:51887/api/category");
+                using var request = await httpClient.DeleteAsync($"http://localhost:51887/api/category/{id}");
             }
 
             return RedirectToAction("Index");

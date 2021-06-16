@@ -37,23 +37,22 @@ namespace MarketPlace.API.Controllers
         }
 
         [HttpPut]
-        public async Task Update([FromBody] CategoryDTO categoryDTO)
+        public async Task Update(CategoryDTO categoryDTO)
         {
 
             if (categoryDTO != null)
             {
-                await _categoryService.Create(categoryDTO);
+                await _categoryService.Update(categoryDTO);
             }
 
         }
 
         [HttpDelete]
-        public async Task Delete([FromBody] CategoryDTO categoryDTO)
+        public async Task Delete(int id)
         {
-            await _categoryService.Delete(categoryDTO);
+            var category = await _categoryService.GetById(id);
+            await _categoryService.Delete(category);
         }
-
-
 
 
     }

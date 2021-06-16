@@ -15,5 +15,7 @@ namespace MarketPlace.API.Services.Interface
 
         Task<List<Category>> CategoryList();
 
+        Task<CategoryDTO> GetById(int id);
+
     }
 }

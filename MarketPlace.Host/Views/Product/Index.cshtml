@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MarketPlace.Host.Models.Product>
+﻿@model IEnumerable<Product>
 
 @{
     ViewData["Title"] = "Index";
@@ -46,8 +46,12 @@
                 @Html.DisplayFor(modelItem => item.CategoryId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-sm btn-warning">Edit </a> |
-                <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-sm btn-danger">Remove </a>
+                <a asp-area="" asp-action="Edit" asp-route-id="@item.id" class="btn btn-sm btn-warning">Edit </a> |
+
+                <a asp-area="" asp-action="Delete" asp-route-id="@item.id" class="btn btn-sm btn-danger">Remove </a>
+            </td>
+            <td>
+                <input type="button" onclick="Delete(@item.id)" value="Delete" class="btn btn-danger btn-sm" />
             </td>
         </tr>
         }
@@ -56,6 +60,18 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<script>
+    function Delete(id) {
+        $.ajax({
+            type: "POST",
+            url: "/Product/Delete/" + id,
+            success: function () {
+                $('#a_' + id).fadeOut();
+            }
+        });
+    }
+</script>
 
 
 
