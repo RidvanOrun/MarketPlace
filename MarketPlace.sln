@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.DomainLayer", "MarketPlace.DomainLayer\MarketPlace.DomainLayer.csproj", "{DC61BAFE-564D-4C4A-A825-7656F1AF22DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketPlace.DomainLayer", "MarketPlace.DomainLayer\MarketPlace.DomainLayer.csproj", "{DC61BAFE-564D-4C4A-A825-7656F1AF22DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.InfrastructureLayer", "MarketPlace.InfrastructureLayer\MarketPlace.InfrastructureLayer.csproj", "{30C540CD-5823-4844-A80D-261CCD700DC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketPlace.InfrastructureLayer", "MarketPlace.InfrastructureLayer\MarketPlace.InfrastructureLayer.csproj", "{30C540CD-5823-4844-A80D-261CCD700DC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.API", "MarketPlace.API\MarketPlace.API.csproj", "{1132E91B-844B-45D3-80F3-7BC0CC85A434}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketPlace.API", "MarketPlace.API\MarketPlace.API.csproj", "{1132E91B-844B-45D3-80F3-7BC0CC85A434}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documantation", "Documantation", "{C64FFEA7-34F3-4919-84AF-5EDE7E51ACBD}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

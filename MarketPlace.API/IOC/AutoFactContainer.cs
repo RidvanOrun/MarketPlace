@@ -18,13 +18,9 @@ namespace MarketPlace.API.IOC
     {
         protected override void Load(ContainerBuilder builder) 
         {
-
             builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
             builder.RegisterType<ProductService>().As<IProductService>().InstancePerLifetimeScope();
-           
-
-            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
-            //builder.RegisterType<Mapping>().As<IMapper>().InstancePerLifetimeScope();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();           
         }
     }
 }

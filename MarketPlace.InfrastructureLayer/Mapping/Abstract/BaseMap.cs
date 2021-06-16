@@ -9,7 +9,6 @@ namespace MarketPlace.InfrastructureLayer.Mapping.Abstract
 {
     public abstract class BaseMap<T>:IEntityTypeConfiguration<T> where T : class, IBaseEntity
     {
-
         public virtual void Configure(EntityTypeBuilder<T> builder) 
         {
             builder.Property(x => x.CreateDate).IsRequired(true);

@@ -54,9 +54,5 @@ namespace MarketPlace.InfrastructureLayer.UnitOfWork
             if (disposing) await _db.DisposeAsync(); // => Üretilen db nesnemizi dispose ettik.
         }
 
-        public Task ExecuteSqlRaw(string sql, params object[] parameters)
-        {
-            throw new NotImplementedException(); // ??????????? Gerekli mi bu deneyeceğim yoksa silecem
-        }
     }
 }

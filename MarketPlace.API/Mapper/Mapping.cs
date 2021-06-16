@@ -15,11 +15,8 @@ namespace MarketPlace.API.Mapper
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<ProductDTO, Product>().ReverseMap();
 
-
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<CategoryDTO, Category>().ReverseMap();
-
-
         }
     }
 }

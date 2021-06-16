@@ -13,7 +13,5 @@ namespace MarketPlace.DomainLayer.UnitOfWork
 
         Task Commit(); //Başaralı bir işlememin sonucunda tüm değişikliklerin veri tabanına kaydolmasını sağlar.
 
-        Task ExecuteSqlRaw(string sql, params object[] parameters); // Mevcut sql sorgularımızı doğrudan veri tabanında yürütmek için kullanılan bir method.
-
     }
 }
