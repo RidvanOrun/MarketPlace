@@ -73,7 +73,7 @@ namespace MarketPlace.API.Controllers
 
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
             ProductDTO productDTO = await _productService.GetById(id);

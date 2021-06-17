@@ -29,31 +29,27 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
-            </td>
-            <td>
-                <a asp-area="" asp-controller="Product" asp-action="Edit" asp-route-id="@item.id" class="btn btn-sm btn-warning">Edit </a> |
-
-                <a asp-area="" asp-controller="Product" asp-action="Delete" asp-route-id="@item.id" class="btn btn-sm btn-danger">Remove </a>
-            </td>
-            @*<td>
-                <input type="button" onclick="Delete(@item.id)" value="Delete" class="btn btn-danger btn-sm" />
-            </td>*@
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryId)
+                </td>
+                <td>
+                    <a asp-area="" asp-controller="Product" asp-action="Edit" asp-route-id="@item.id" class="btn btn-sm btn-warning">Edit </a> |   
+                    <input type="button" onclick="Delete(@item.id)" value="Delete" class="btn btn-danger btn-sm" />
+                </td>                
+            </tr>
         }
     </tbody>
 </table>
@@ -61,7 +57,7 @@
     <a asp-action="Create">Create New</a>
 </p>
 
-@*<script>
+<script>
     function Delete(id) {
         $.ajax({
             type: "POST",
@@ -71,7 +67,7 @@
             }
         });
     }
-</script>*@
+</script>
 
 
 

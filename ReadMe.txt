@@ -186,3 +186,5 @@
 				
 				Category Listeleme, Ekleme, Güncelleme ve Silme
 
+4. "MarketPlace.Host" ismiyle ASP.Net Core Web Application(MVC) projesi eklenir.
+

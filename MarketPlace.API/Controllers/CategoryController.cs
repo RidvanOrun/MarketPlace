@@ -55,7 +55,7 @@ namespace MarketPlace.API.Controllers
 
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
             var category = await _categoryService.GetById(id);

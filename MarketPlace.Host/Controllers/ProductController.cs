@@ -78,16 +78,14 @@ namespace MarketPlace.Host.Controllers
 
             return RedirectToAction("Index");
         }
+        
 
         public async Task<IActionResult> Delete(int id)
         {
             using (var httpClient = new HttpClient())
-            {
-                
-                using var request = await httpClient.DeleteAsync($"http://localhost:51887/api/product/{id}");
-                
+            {                
+                using var request = await httpClient.DeleteAsync($"http://localhost:51887/api/product/{id}");                
             }
-
             return RedirectToAction("Index");
         }
 
