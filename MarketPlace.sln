@@ -10,11 +10,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketPlace.API", "MarketPlace.API\MarketPlace.API.csproj", "{1132E91B-844B-45D3-80F3-7BC0CC85A434}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documantation", "Documantation", "{C64FFEA7-34F3-4919-84AF-5EDE7E51ACBD}"
-	ProjectSection(SolutionItems) = preProject
-		ReadMe.txt = ReadMe.txt
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPlace.Host", "MarketPlace.Host\MarketPlace.Host.csproj", "{C25F495B-B3A1-4E63-ABCC-6D7B5B976ADD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketPlace.Host", "MarketPlace.Host\MarketPlace.Host.csproj", "{C25F495B-B3A1-4E63-ABCC-6D7B5B976ADD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
