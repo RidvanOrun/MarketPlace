@@ -1,7 +1,7 @@
 # MarketPlace
 Bu projede; ASP.NET CORE teknolojisiyle CRUD işlemlerini yapılabileceğim bir Web API ve bu Web API’dan verileri alarak görselleştirme yapacağım bir web sitesi geliştirdim. Projemi DDD mimarisiyle yaptım. 
 
-Proje ile ilgili açıklamalarıma projemin [*ReadMe.txt*](https://github.com/RidvanOrun/MarketPlace/blob/master/ReadMe.txt)'sinden ulaşabilirisiniz. Ayrıca projemde kullandığım teknolojiler ile ilgili çeşitli kaynaklardan yararlanarak yaptığım dökümantasyonlarımı aşağıdaki kısımda inceleyebilirsiniz.
+Projenin özet ve ayrıntılı anlatımına projemin [*ReadMe.txt*](https://github.com/RidvanOrun/MarketPlace/blob/master/ReadMe.txt)'sinden ulaşabilirisiniz. Ayrıca projemde kullandığım teknolojiler ile ilgili çeşitli kaynaklardan yararlanarak yaptığım dökümantasyonlarımı aşağıdaki kısımda inceleyebilirsiniz.
 
 ## Kullandığım teknolojiler;
 
