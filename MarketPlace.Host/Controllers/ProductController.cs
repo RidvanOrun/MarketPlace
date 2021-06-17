@@ -46,6 +46,7 @@ namespace MarketPlace.Host.Controllers
             return RedirectToAction("Index");
         }
 
+        
         public async Task<ActionResult<Product>> Edit(int id)
         {
             Product product = new Product();
@@ -82,7 +83,9 @@ namespace MarketPlace.Host.Controllers
         {
             using (var httpClient = new HttpClient())
             {
+                
                 using var request = await httpClient.DeleteAsync($"http://localhost:51887/api/product/{id}");
+                
             }
 
             return RedirectToAction("Index");

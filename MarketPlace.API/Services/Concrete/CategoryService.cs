@@ -65,7 +65,7 @@ namespace MarketPlace.API.Services.Concrete
             var category = await _unitOfWork.CategoryRepository.FirstOrDefault(x=>x.id==id);
 
             return _mapper.Map<CategoryDTO>(category);
-        }
+        }       
 
     }
 }

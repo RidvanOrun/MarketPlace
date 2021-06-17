@@ -14,6 +14,8 @@ namespace MarketPlace.API.Services.Interface
         Task Delete(ProductDTO productDTO);
 
         Task<List<Product>> ProductList();
+        Task<ProductDTO> GetById(int id);
+       
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MarketPlace.API.Model.DTOs;
 using MarketPlace.API.Services.Interface;
+using MarketPlace.DomainLayer.Entities.Concrete;
 using MarketPlace.DomainLayer.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,14 @@ namespace MarketPlace.API.Controllers
             return Ok(await _categoryService.CategoryList());
         }
 
+        [HttpGet("{id:int}", Name = "GetCategoryById")]
+        public async Task<IActionResult> GetCategoryById(int id)
+        {
+            CategoryDTO categoryDTO = await _categoryService.GetById(id);
+
+            return Ok(categoryDTO);
+        }
+
         [HttpPost]
         public async Task Create([FromBody] CategoryDTO categoryDTO)
         {
@@ -35,15 +44,14 @@ namespace MarketPlace.API.Controllers
                 await _categoryService.Create(categoryDTO);
             }
         }
-
-        [HttpPut]
-        public async Task Update(CategoryDTO categoryDTO)
+        [HttpPut("{id}", Name = "UpdateCategory")]
+        public async Task<ActionResult<Category>> UpdateCategory(int id, CategoryDTO categoryDTO)
         {
+            if (id != categoryDTO.id) return BadRequest();
 
-            if (categoryDTO != null)
-            {
-                await _categoryService.Update(categoryDTO);
-            }
+            await _categoryService.Update(categoryDTO);
+
+            return CreatedAtAction(nameof(Get), categoryDTO);
 
         }
 

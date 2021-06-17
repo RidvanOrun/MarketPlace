@@ -46,13 +46,13 @@
                 @Html.DisplayFor(modelItem => item.CategoryId)
             </td>
             <td>
-                <a asp-area="" asp-action="Edit" asp-route-id="@item.id" class="btn btn-sm btn-warning">Edit </a> |
+                <a asp-area="" asp-controller="Product" asp-action="Edit" asp-route-id="@item.id" class="btn btn-sm btn-warning">Edit </a> |
 
-                <a asp-area="" asp-action="Delete" asp-route-id="@item.id" class="btn btn-sm btn-danger">Remove </a>
+                <a asp-area="" asp-controller="Product" asp-action="Delete" asp-route-id="@item.id" class="btn btn-sm btn-danger">Remove </a>
             </td>
-            <td>
+            @*<td>
                 <input type="button" onclick="Delete(@item.id)" value="Delete" class="btn btn-danger btn-sm" />
-            </td>
+            </td>*@
         </tr>
         }
     </tbody>
@@ -61,7 +61,7 @@
     <a asp-action="Create">Create New</a>
 </p>
 
-<script>
+@*<script>
     function Delete(id) {
         $.ajax({
             type: "POST",
@@ -71,7 +71,7 @@
             }
         });
     }
-</script>
+</script>*@
 
 
 

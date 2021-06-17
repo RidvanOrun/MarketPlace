@@ -4,8 +4,10 @@ using MarketPlace.DomainLayer.Entities.Concrete;
 using MarketPlace.DomainLayer.Enums;
 using MarketPlace.DomainLayer.Repository.EntityTypeRepository;
 using MarketPlace.DomainLayer.UnitOfWork;
+using MarketPlace.InfrastructureLayer.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,21 @@ namespace MarketPlace.API.Controllers
             return Ok(await _productService.ProductList());
         }
 
+       /// <summary>
+       /// id den güncellenecek yere getirme
+       /// </summary>
+       /// <param name="id"></param>
+       /// <returns></returns>
+
+        [HttpGet("{id:int}",Name ="GetProductById")]
+        public async Task<IActionResult> GetProductById(int id)
+        {
+            ProductDTO productDTO = await _productService.GetById(id);
+
+            return Ok(productDTO);
+        }
+
+
         [HttpPost]
         public async Task Create([FromBody] ProductDTO productDTO) 
         {
@@ -40,20 +57,26 @@ namespace MarketPlace.API.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task Update([FromBody] ProductDTO productDTO)
+        /// <summary>
+        /// bilgileri güncelleme
+        /// </summary>
+        /// <param name="productDTO"></param>
+        /// <returns></returns>
+        [HttpPut("{id}", Name = "UpdateProduct")]
+        public async Task<ActionResult<Product>> UpdateProduct(int id, ProductDTO productDTO)
         {
+            if (id != productDTO.id) return BadRequest();
 
-            if (productDTO!=null)
-            {
-                await _productService.Update(productDTO);
-            }
-           
+            await _productService.Update(productDTO);
+
+            return CreatedAtAction(nameof(Get), productDTO);
+
         }
 
         [HttpDelete]
-        public async Task Delete([FromBody] ProductDTO productDTO)
+        public async Task Delete(int id)
         {
+            ProductDTO productDTO = await _productService.GetById(id);
             await _productService.Delete(productDTO);
         }
 

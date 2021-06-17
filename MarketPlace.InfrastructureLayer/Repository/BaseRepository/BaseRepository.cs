@@ -33,15 +33,18 @@ namespace MarketPlace.InfrastructureLayer.Repository.BaseRepository
             
             entity.Status = Status.Passive; // => Status passsive haline getirdik.
             entity.DeleteDate = DateTime.Now; // passsive alınma tarihini o anlık tarih yaptık.
+            _context.SaveChangesAsync();
         }
 
         public async Task<T> FirstOrDefault(Expression<Func<T, bool>> expression) => await _table.Where(expression).FirstOrDefaultAsync();
 
         public async Task<List<T>> Get(Expression<Func<T, bool>> expression) => await _table.Where(expression).ToListAsync();
-        
+
+
         public void Update(T entity)
         {
             _context.Entry<T>(entity).State = EntityState.Modified;
+            _context.SaveChangesAsync();
         }
     }
 }

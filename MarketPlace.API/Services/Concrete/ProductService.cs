@@ -62,5 +62,12 @@ namespace MarketPlace.API.Services.Concrete
             _unitOfWork.ProductRepository.Update(product);
             await _unitOfWork.Commit();
         }
+
+        public async Task<ProductDTO> GetById(int id)
+        {
+            var product = await _unitOfWork.ProductRepository.FirstOrDefault(x => x.id == id);
+            return _mapper.Map<ProductDTO>(product);
+        }
+
     }
 }

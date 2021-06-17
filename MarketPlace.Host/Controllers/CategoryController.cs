@@ -52,7 +52,7 @@ namespace MarketPlace.Host.Controllers
 
             using (var httpClient = new HttpClient())
             {
-                using var request = await httpClient.GetAsync($"http://localhost:51887/api/category/id");
+                using var request = await httpClient.GetAsync($"http://localhost:51887/api/category/{id}");
 
                 string response = await request.Content.ReadAsStringAsync();
 
@@ -61,6 +61,7 @@ namespace MarketPlace.Host.Controllers
 
             return View(category);
         }
+
 
         [HttpPost]
         public async Task<ActionResult<Category>> Edit(Category category)
