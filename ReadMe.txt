@@ -1,4 +1,18 @@
 
+Projenin Özeti; 
+				- ASP.NET CORE ile ürünlerin ve kategorilerin listenebileceði, kayýt ekleme, silme, güncelleme yapýlabileceði bir Web API ve bu Web API’dan verileri alarak görselleþtirme yapýlacak bir web sitesi tasarlanmýþtýr.
+
+				- Proje DDD temeliyle yapýlmýþtýr. Veri Tabaný iþlemleri EntityFramework Core ve Microsoft SQL server ile yapýlmýþtýr.
+
+				- "MarketPlace.DomainLayer"(Class Library); Varlýklar oluþturulmuþtur, Generic Repository Design Pattern ve Unit Of Work'ün temelleri atýlmýþtýr.
+
+				- "MarketPlace.InfastructureLayer"(Class Library); Db ile baðlantý amacýyla ApplicationDBContext oluþturulmuþ, Varlýklarýn DB ye Mapping iþlemleri yapýlmýþtýr. Repository ler ve Unit Of Work gövdelendirilmiþtir.
+
+				- "MarketPlace.API"(ASP.Net Core Web App); ihtiyaçlar doðrultusunda DTO lar oluþturulmuþ ve AutoMapper kullanmýný için mapping iþlemi yapýlmýþtýr. Services ler oluþturulmuþtur. Product ve Category Controller oluþturulmuþtur.
+
+				- "MarketPlace.Host"(ASP.Net Core Web Application(MVC)); Model folderýna WEP-API'dan talep edilecek varlýklar oluþturuldu. Controllar oluþturuldu. Ve View kýsýmlarý düzenlendi. NavBarPartial ve LeftBarPartial Eklendi.
+
+
 
 1. "MarketPlace" ismiyle Blank Solution açýlýr.
 
@@ -186,5 +200,18 @@
 				
 				Category Listeleme, Ekleme, Güncelleme ve Silme
 
-4. "MarketPlace.Host" ismiyle ASP.Net Core Web Application(MVC) projesi eklenir.
+5. "MarketPlace.Host" ismiyle ASP.Net Core Web Application(MVC) projesi eklenir.
+
+	5.1. Model.cs içerisinde Wep-API'dan talep edilecek varlýklar oluþturulur.
+		5.1.1. Product.cs
+		5.1.2. Category.cs
+
+	5.2. Controllerlar oluþturuldu.
+		5.2.1. ProductController.cs
+		5.2.2. CategoryController.cs
+
+	5.3. View ler oluþturuldu. Controllerlar da oluþturulan Methodlarýn Viewlarý düzenlendi.
+	
+	5.4. NavBarPartial Ve LeftSideBar eklendi.
+
 
