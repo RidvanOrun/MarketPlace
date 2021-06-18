@@ -13,8 +13,8 @@ Entity Framework =>  [*RidvanOrun/GitBook/EF*](https://ridvanorun.gitbook.io/ent
 
 SOLID Prencibles =>  [*RidvanOrun/GitBook/SOLID*](https://ridvanorun.gitbook.io/https://ridvanorun.gitbook.io/solid//) 
 
-Asp.NetCore, Asynchronous Programming, View Component => [*RidvanOrun/GitBook/.NetCore*](https://ridvanorun.gitbook.io/asp-net-core/)
+Asp.NetCore, Asynchronous Programming => [*RidvanOrun/GitBook/.NetCore*](https://ridvanorun.gitbook.io/asp-net-core/)
 
 Generic Repository Design Pattern, Unit Of Work =>[*RidvanOrun/GitBook/DesingPattern*](https://ridvanorun.gitbook.io/desing-patterns/)
 
-DTO, VM, AutoMapper =>[*RidvanOrun/GitBook/ObjectOperation*](https://ridvanorun.gitbook.io/object-operation/)
+DTO,AutoMapper =>[*RidvanOrun/GitBook/ObjectOperation*](https://ridvanorun.gitbook.io/object-operation/)
